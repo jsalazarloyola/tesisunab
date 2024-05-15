@@ -1,0 +1,130 @@
+\documentclass[copyright]{tesisunab}
+
+% Borrar esto, pues es solo para texto dummy
+\usepackage{lipsum}
+
+% Para poner notas
+\usepackage{todonotes}
+
+%INIT--Tables----
+\usepackage{multirow}
+\usepackage{adjustbox}
+%END--Tables----
+%INIT--GANTT----
+\usepackage{pgfgantt}
+\usepackage{xcolor}
+\definecolor{barblue}{RGB}{153,204,254}
+\definecolor{groupblue}{RGB}{51,102,254}
+\definecolor{linkred}{RGB}{165,0,33} 
+%END--GANTT----
+
+\title{Neque porro quisquam est qui dolorem ipsum quia dolor sit amet}
+\author{Fulano de Tal \and Perengano los Palotes}
+\date{\today}
+
+\keywordsEs{Prueba, Tesis}
+\keywordsEn{Test, Thesis}
+
+\universidad{universidad andrés bello}
+\subtitle{Consectetur, adipisci, velit\ldots}
+
+\facultad{facultad de ingeniería}
+
+\profesor{Mengano}
+\profesorco{Sutano}
+\propuesta{Trabajo presentado en conformidad a los requisitos para obtener el grado de Magíster xxx}
+\ciudad{Santiago}
+\pais{Chile}
+
+\copyrightnotice{
+	\textcopyright Fulano de Tal, 2023
+	
+	\includegraphics[scale=0.25]{./images/ccby.png}
+	Algunos  derechos  reservados. Esta  obra  está  bajo  una  Licencia  Creative  Commons  Atribución-Chile  3.0.  Sus  condiciones  de  uso  pueden  ser  revisadas  en:  <\url{http://creative-commons.org/licenses/by/3.0/cl/}>.
+}
+
+%\logo{\includegraphics[scale=.25]{./images/LogoUNAB.png}}
+
+% Archivo de referencias
+\addbibresource{referencias.bib}
+
+\begin{document}
+	\maketitle
+
+	% ----------------------------------------------------------
+	% ----------- PRIMERA PARTE --------------------------------
+	% Temas preliminares: abstract, agradecimientos, 
+	% dedicatorias...
+	\frontmatter
+	
+	\dedicatoriaSimple{A Lilith, señora de los desposeídos}
+	
+	\begin{agradecimiento}
+		Agradecemos a todos los profesores anónimos de los últimos 10 años que han ido contribuyendo en el tiempo con su experiencia en cada una de estas secciones. Tomar los consejos solo como referencial --- recuerde siempre tomar acuerdos con su profesor guía.
+	\end{agradecimiento}
+	
+	% De acuerdo al formato, lo preliminar termina con las tablas
+	% de contenido.	
+	\tableofcontents
+	\newpage
+	%% Indice de tablas
+	\listoftables
+	\newpage
+	%% Indice de figuras
+	\listoffigures
+	\newpage
+	
+	\begin{resumenEs}
+		\textcolor{red}{Una página ---utilizar la siguiente estructura en el resumen (no más de cinco líneas cada punto): contexto, problema, cómo otros lo han resuelto. en qué han fallado, cuál es la hipótesis de este trabajo, el objetivo, los resultados que se han obtenido (por ahora suponer acorde a lo que uno espera) + contribuciones}
+		
+		Un buen resumen debe permitir al lector identificar, en forma rápida y precisa, el contenido básico del trabajo; no debe tener más de 200 o 250 palabras y debe redactarse en pasado, escrito en un solo párrafo finalizando con una frase concluyente. No debe aportar información o conclusiones que no está presentes en el texto, así como tampoco debe  citar referencias bibliográficas. Debe quedar claro el problema que se investiga y el objetivo del mismo (lea y analice ejemplos desde artículos publicados, por ejemplo desde \url{www.scielo.org}).
+		
+		En general, el resumen debe:  
+		\begin{itemize}	
+			\item Dar contexto al título, plantear el principal objetivo y el alcance de la investigación. \item Describir la metodología empleada.
+			\item Dar contexto explicando el tipo o naturaleza de la experiencia, experimento, trabajo o análisis.
+			\item Explicitar el principal resultado.
+			\item Explicitar la principal conclusión.
+		\end{itemize}
+	
+		Los errores más frecuentes en la redacción del resumen son: 
+		\begin{itemize}
+			\item No plantear claramente la pregunta, hipótesis u objetivos.
+			\item Presentar figuras o esquemas.
+			\item Efectuar enumeraciones.
+			\item Ser demasiado largo.
+			\item Mala redacción y problemas de conceptualización.
+		\end{itemize}
+	\end{resumenEs}
+	
+%	\begin{resumenEn}
+%		Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then
+%	\end{resumenEn}
+%	
+	% ----------------------------------------------------------
+	% ----------- SEGUNDA PARTE --------------------------------
+	% Los capítulos pueden ser tantos como haga falta y conviene separarlos, para evitar un 
+	% archivo infinitamente largo.
+	\mainmatter
+	\include{caps/01-intro}
+	\include{caps/02-problem}
+	\include{caps/03-conclusions}
+	
+	% ----------------------------------------------------------
+	% ----------- TERCERA PARTE --------------------------------
+	% ### Bibliografía de este documento ###
+	% La opción heading la coloca en la tabla de contenidos
+	\printbibliography[heading=bibintoc]
+	
+	\appendix
+	\include{appendix/01-addendum}
+	
+	\annex
+	% Por un bug del sistema, si el primer anexo está en un archivo aparte,
+	% debe ser incluido con \input, en lugar de \include
+	% La excepción a este caso es que después de \annex, se ponga una página
+	% en blanco.
+	\input{anexos/01-prueba}
+	\include{anexos/02-otro}
+	
+\end{document}
